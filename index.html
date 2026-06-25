@@ -19,10 +19,10 @@
       --border: #e2e8e4;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); }
+    body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     
-    /* Menu du haut - Hauteur optimisée (plus fin) */
+    /* Menu du haut - Ultra optimisé et fin */
     nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 5%; background: var(--white); box-shadow: 0 2px 12px rgba(15,42,29,0.06); position: sticky; top: 0; z-index: 100; }
     nav a h1 { font-size: 22px; color: var(--primary); font-weight: 700; }
     nav a span { color: var(--accent); }
@@ -31,18 +31,19 @@
     nav ul a:hover { color: var(--accent); }
     
     .btn-whatsapp { background: #25d366; color: white; padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
-    .nav-whatsapp { padding: 8px 18px; font-size: 13px; } /* Version légèrement plus petite pour le menu */
+    .nav-whatsapp { padding: 8px 18px; font-size: 13px; }
     
     /* Hero Section */
     .hero-container { 
       position: relative; 
-      background-image: linear-gradient(rgba(15, 42, 29, 0.8), rgba(15, 42, 29, 0.8)), url('1000058652.jpg'); 
+      background-image: linear-gradient(rgba(15, 42, 29, 0.82), rgba(15, 42, 29, 0.82)), url('1000058652.jpg'); 
       background-size: cover; 
       background-position: center; 
       color: white;
       padding: 60px 5%;
+      width: 100%;
     }
-    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; max-width: 1400px; margin: 0 auto; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; max-width: 1400px; margin: 0 auto; width: 100%; }
     
     .hero span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; display: block; margin-bottom: 10px; }
     .hero h1 { font-size: 42px; color: white; line-height: 1.2; margin: 15px 0; font-weight: 700; word-wrap: break-word; }
@@ -53,7 +54,7 @@
     .btn-primary { background: var(--accent); color: white; padding: 12px 28px; border-radius: 25px; font-weight: 600; text-align: center; transition: background 0.2s; display: inline-flex; align-items: center; }
     .btn-primary:hover { background: #b08e4b; }
     
-    .hero-stats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 25px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 25px; flex-wrap: wrap; width: 100%; }
     .stat-item { font-size: 13px; color: #b3c2bc; min-width: 100px; }
     .stat-item div:first-child { font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
     
@@ -153,26 +154,31 @@
     
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* MEDIA QUERIES - RESPONSIVE DESIGN */
+    /* MEDIA QUERIES - RESPONSIVE CORRECTIONS */
     @media (max-width: 1200px) {
       .offers-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; } 
     }
     
     @media (max-width: 768px) {
-      /* Menu Mobile ultra-compact pour le scroll */
-      nav { flex-direction: column; gap: 6px; text-align: center; padding: 8px 5%; }
-      nav a h1 { font-size: 18px; }
-      nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
-      nav ul a { font-size: 13px; }
-      .nav-whatsapp { padding: 5px 14px; font-size: 11px; gap: 4px; }
+      /* Barre du haut ultra fine, centrée et compacte */
+      nav { flex-direction: column; gap: 8px; padding: 8px 15px; text-align: center; justify-content: center; }
+      nav a h1 { font-size: 20px; line-height: 1; }
+      nav ul { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px 14px; max-width: 100%; margin: 0 auto; }
+      nav ul a { font-size: 13px; font-weight: 600; }
+      .nav-whatsapp { display: none !important; }
 
-      .hero { grid-template-columns: 1fr; text-align: center; gap: 30px; }
-      .hero h1 { font-size: 32px; } 
-      .hero p { font-size: 15px; }
-      .cta-buttons { justify-content: center; gap: 10px; }
-      .hero-stats { justify-content: center; gap: 20px; }
-      .stat-item { text-align: center; }
-      .instructor-box { margin-top: 10px; } 
+      /* Conteneur Hero parfaitement ajusté sans coupure */
+      .hero-container { padding: 40px 20px; }
+      .hero { grid-template-columns: 1fr; text-align: center; gap: 30px; width: 100%; }
+      .hero h1 { font-size: 32px; padding: 0 5px; } 
+      .hero p { font-size: 15px; padding: 0 5px; }
+      .cta-buttons { justify-content: center; gap: 10px; width: 100%; }
+      .cta-buttons a { flex: 1; min-width: 140px; justify-content: center; font-size: 13px; padding: 12px 15px; }
+      
+      /* Correction des stats coupées sur les côtés */
+      .hero-stats { display: grid; grid-template-columns: 1fr; gap: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); width: 100%; }
+      .stat-item { text-align: center; width: 100%; }
+      .instructor-box { margin-top: 15px; } 
 
       .grid-3, .offers-grid, .discovery-grid, .contact-grid, .info-panel { grid-template-columns: 1fr; } 
       .quiz-container { padding: 25px 20px; }
@@ -318,7 +324,7 @@
         <h3>Leçon individuelle</h3>
         <p style="color:var(--gray); font-size:13px;">Idéal pour travailler un point précis du swing.</p>
         <div class="price">60 €</div>
-        <p style="font-size:13px; color:var(--gray);">la séance de 45 min</p>
+        <p style="font-size:13px; color:var(--primary); font-weight: 600;">la séance de 45 minutes</p>
         <ul>
           <li><span>✓</span> Analyse vidéo du swing</li>
           <li><span>✓</span> Exercices adaptés</li>
@@ -335,8 +341,8 @@
         <span style="color:var(--accent); font-weight:600;">Parcours</span>
         <h3>Leçon sur parcours</h3>
         <p style="color:var(--gray); font-size:13px;">La formule idéale en situation réelle.</p>
-        <div class="price">100 €</div>
-        <p style="font-size:13px; color:var(--gray);">+ accès parcours 30€</p>
+        <div class="price">100 € + 30€ accès parcours </div>
+        <p style="font-size:13px; color:var(--primary); font-weight: 600;">la séance d'1h30</p>
         <ul>
           <li><span>✓</span> Tactique de jeu</li>
           <li><span>✓</span> Routine de coup</li>
@@ -353,7 +359,7 @@
         <h3>Forfait progression</h3>
         <p style="color:var(--gray); font-size:13px;">Un accompagnement régulier dans le temps.</p>
         <div class="price">300 €</div>
-        <p style="font-size:13px; color:var(--gray);">5 séances + 1 offerte</p>
+        <p style="font-size:13px; color:var(--primary); font-weight: 600;">5 séances de 45 min<br>+ 1 offerte de 45 min</p>
         <ul>
           <li><span>✓</span> 6 séances complètes</li>
           <li><span>✓</span> Suivi personnalisé</li>
@@ -438,7 +444,7 @@
           <select id="formFormule" required>
             <option value="" disabled selected>— Choisissez une formule —</option>
             <option value="Leçon individuelle (60€)">Practice — Leçon individuelle (60€ / 45min)</option>
-            <option value="Leçon sur parcours (100€)">Parcours — Leçon sur parcours (100€)</option>
+            <option value="Leçon sur parcours (100€)">Parcours — Leçon sur parcours (100€ / 1h30)</option>
             <option value="Forfait progression (300€)">Forfait progression 5+1 séances (300€)</option>
             <option value="Formule Découverte 1 pers (199€)">Formule Découverte (3h) — 1 personne (199€)</option>
             <option value="Formule Découverte 2 pers (249€)">Formule Découverte (3h) — 2 personnes (249€)</option>
@@ -556,7 +562,7 @@
     resultBox.style.display = 'block';
 
     let titreFormule = "Leçon sur Parcours (100€)";
-    let descFormule = "Le parcours est le meilleur endroit pour progresser en situation réelle.";
+    let descFormule = "Le parcours (1h30) est le meilleur endroit pour progresser en situation réelle.";
     let selectValue = "Leçon sur parcours (100€)";
 
     if (answers['1'] === 'debutant' || answers['3'] === 'decouvrir') {
@@ -565,11 +571,11 @@
       selectValue = "Formule Découverte 1 pers (199€)";
     } else if (answers['4'] === 'regulier') {
       titreFormule = "Le Forfait Progression 5+1 (300€)";
-      descFormule = "Pour ancrer durablement des changements et corriger des défauts réguliers.";
+      descFormule = "Pour ancrer durablement des changements (5 séances de 45 min + 1 offerte).";
       selectValue = "Forfait progression (300€)";
     } else if (answers['2'] === 'technique' && answers['4'] === 'ponctuel') {
       titreFormule = "La Leçon Individuelle au Practice (60€)";
-      descFormule = "Idéal pour un déblocage technique ciblé.";
+      descFormule = "Idéal pour un déblocage technique ciblé de 45 minutes.";
       selectValue = "Leçon individuelle (60€)";
     }
 
