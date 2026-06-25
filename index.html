@@ -22,50 +22,44 @@
     body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); }
     a { text-decoration: none; color: inherit; }
     
-    /* Nav */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: var(--white); box-shadow: 0 2px 12px rgba(15,42,29,0.06); position: sticky; top: 0; z-index: 100; }
-    nav a h1 { font-size: 24px; color: var(--primary); font-weight: 700; }
+    /* Menu du haut - Hauteur optimisée (plus fin) */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 5%; background: var(--white); box-shadow: 0 2px 12px rgba(15,42,29,0.06); position: sticky; top: 0; z-index: 100; }
+    nav a h1 { font-size: 22px; color: var(--primary); font-weight: 700; }
     nav a span { color: var(--accent); }
     nav ul { display: flex; list-style: none; gap: 24px; }
-    nav ul a { font-weight: 500; color: var(--text); transition: color 0.2s; }
+    nav ul a { font-weight: 500; color: var(--text); transition: color 0.2s; font-size: 15px; }
     nav ul a:hover { color: var(--accent); }
+    
     .btn-whatsapp { background: #25d366; color: white; padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    .nav-whatsapp { padding: 8px 18px; font-size: 13px; } /* Version légèrement plus petite pour le menu */
     
     /* Hero Section */
     .hero-container { 
       position: relative; 
-      background-image: linear-gradient(rgba(15, 42, 29, 0.75), rgba(15, 42, 29, 0.75)), url('1000058652.jpg'); 
+      background-image: linear-gradient(rgba(15, 42, 29, 0.8), rgba(15, 42, 29, 0.8)), url('1000058652.jpg'); 
       background-size: cover; 
       background-position: center; 
       color: white;
-      padding: 90px 5%;
+      padding: 60px 5%;
     }
-    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; max-width: 1400px; margin: 0 auto; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; max-width: 1400px; margin: 0 auto; }
     
-    .golf-preview-img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border: 2px solid var(--accent);
-      display: block;
-    }
-
-    .hero span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; }
-    .hero h1 { font-size: 44px; color: white; line-height: 1.2; margin: 15px 0; font-weight: 700; }
+    .hero span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; display: block; margin-bottom: 10px; }
+    .hero h1 { font-size: 42px; color: white; line-height: 1.2; margin: 15px 0; font-weight: 700; word-wrap: break-word; }
     .hero h1 em { font-style: normal; color: var(--accent); }
-    .hero p { font-size: 17px; color: #cedcd5; margin-bottom: 35px; font-weight: 300; }
-    .cta-buttons { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: white; padding: 15px 32px; border-radius: 6px; font-weight: 600; text-align: center; transition: background 0.2s; }
+    .hero p { font-size: 16px; color: #cedcd5; margin-bottom: 30px; font-weight: 300; }
+    
+    .cta-buttons { display: flex; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: white; padding: 12px 28px; border-radius: 25px; font-weight: 600; text-align: center; transition: background 0.2s; display: inline-flex; align-items: center; }
     .btn-primary:hover { background: #b08e4b; }
-    .hero-stats { display: flex; gap: 35px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 30px; }
-    .stat-item { font-size: 13px; color: #b3c2bc; }
-    .stat-item div:first-child { font-size: 26px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+    
+    .hero-stats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 25px; flex-wrap: wrap; }
+    .stat-item { font-size: 13px; color: #b3c2bc; min-width: 100px; }
+    .stat-item div:first-child { font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
     
     /* Box Profil Enseignant */
-    .instructor-box { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); padding: 30px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .instructor-profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); margin-bottom: 18px; background-color: var(--primary-light); }
+    .instructor-box { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); padding: 30px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 340px; margin: 0 auto; }
+    .instructor-profile-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); margin-bottom: 15px; background-color: var(--primary-light); }
 
     /* Philosophy */
     .philosophy { text-align: center; padding: 90px 5%; background: var(--white); }
@@ -86,9 +80,9 @@
     .quiz-step { display: none; }
     .quiz-step.active { display: block; }
     .quiz-step h3 { font-size: 22px; margin-bottom: 25px; color: var(--primary); display: flex; align-items: center; gap: 12px; font-weight: 600; }
-    .quiz-step h3 span { background: var(--accent); color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 14px; font-weight: 700; }
+    .quiz-step h3 span { background: var(--accent); color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 14px; font-weight: 700; flex-shrink: 0; }
     .options-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 25px; }
-    .option-btn { background: var(--bg-light); border: 1px solid var(--border); padding: 16px 22px; text-align: left; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; color: var(--text); transition: all 0.2s; }
+    .option-btn { background: var(--bg-light); border: 1px solid var(--border); padding: 16px 22px; text-align: left; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; color: var(--text); transition: all 0.2s; width: 100%; }
     .option-btn:hover { border-color: var(--primary); background: #eef2ef; }
     .option-btn.selected { border-color: var(--accent); background: #fbf9f3; color: var(--primary); font-weight: 600; box-shadow: inset 0 0 0 1px var(--accent); }
     .quiz-nav { display: flex; justify-content: space-between; margin-top: 25px; }
@@ -104,18 +98,10 @@
     .result-card h5 { font-size: 21px; color: var(--primary); margin-bottom: 12px; font-weight: 700; }
     .btn-result-cta { display: inline-block; background: var(--accent); color: white; padding: 14px 30px; border-radius: 6px; font-weight: 600; margin-top: 15px; }
 
-    /* Offers - 4 colonnes alignées */
+    /* Offers */
     .offers-section { padding: 90px 5%; background: var(--bg-light); }
     .offers-section h2 { text-align: center; font-size: 36px; color: var(--primary); margin-bottom: 45px; font-weight: 700; }
-    
-    .offers-grid { 
-      display: grid; 
-      grid-template-columns: repeat(4, 1fr); 
-      gap: 20px; 
-      max-width: 1440px; 
-      margin: 0 auto; 
-    }
-    
+    .offers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1440px; margin: 0 auto; }
     .offer-card { border: 1px solid var(--border); padding: 30px 20px; border-radius: 10px; position: relative; background: white; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
     .offer-card:hover { transform: translateY(-3px); }
     .offer-card.featured { border: 2px solid var(--accent); box-shadow: 0 12px 30px rgba(15,42,29,0.08); }
@@ -123,7 +109,7 @@
     .offer-card h3 { font-size: 20px; color: var(--primary); margin: 15px 0 10px; font-weight: 700; }
     .price { font-size: 30px; font-weight: 700; color: var(--primary); margin: 15px 0 5px; }
     .offer-card ul { list-style: none; margin: 20px 0; font-size: 13px; }
-    .offer-card ul li { margin-bottom: 10px; display: flex; gap: 8px; color: var(--gray); line-height: 1.4; }
+    .offer-card ul li { margin-bottom: 10px; display: flex; gap: 8px; color: var(--gray); line-height: 1.4; text-align: left; }
     .offer-card ul li span { color: #25d366; font-weight: bold; }
     .btn-offer { display: block; text-align: center; border: 1px solid var(--primary); padding: 12px; border-radius: 6px; font-weight: 600; transition: all 0.2s; font-size: 14px; margin-top: auto; background: transparent; color: var(--primary); }
     .btn-offer:hover { background: var(--bg-light); }
@@ -134,7 +120,7 @@
     .discovery { background: var(--white); padding: 90px 5%; }
     .discovery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; }
     .step-list { display: flex; flex-direction: column; gap: 24px; }
-    .step-item { display: flex; gap: 20px; background: var(--bg-light); padding: 25px; border-radius: 10px; border: 1px solid var(--border); }
+    .step-item { display: flex; gap: 20px; background: var(--bg-light); padding: 25px; border-radius: 10px; border: 1px solid var(--border); text-align: left; }
     .step-num { background: var(--primary); color: white; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; }
     .step-item h3 { font-size: 18px; color: var(--primary); margin-bottom: 5px; }
     .step-item p { color: var(--gray); font-size: 14px; }
@@ -151,13 +137,13 @@
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; }
     .contact-form-box { background: var(--white); padding: 45px; border-radius: 12px; box-shadow: 0 10px 30px rgba(15,42,29,0.04); border: 1px solid var(--border); }
     .form-group { margin-bottom: 22px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 15px; color: var(--primary); }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 15px; color: var(--primary); text-align: left; }
     .form-group select, .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 15px; background: var(--bg-light); color: var(--text); font-family: inherit; }
     .form-group select:focus, .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); background: var(--white); }
     .btn-submit { background: var(--primary); color: white; border: none; padding: 16px; width: 100%; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 16px; transition: background 0.2s; }
     .btn-submit:hover { background: var(--primary-light); }
     .contact-info-list { display: flex; flex-direction: column; gap: 16px; margin-top: 25px; }
-    .contact-link { display: flex; align-items: center; gap: 18px; padding: 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); transition: all 0.2s; }
+    .contact-link { display: flex; align-items: center; gap: 18px; padding: 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); transition: all 0.2s; text-align: left; }
     .contact-link:hover { border-color: var(--accent); transform: translateX(3px); }
 
     /* Footer */
@@ -167,15 +153,30 @@
     
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
+    /* MEDIA QUERIES - RESPONSIVE DESIGN */
     @media (max-width: 1200px) {
       .offers-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; } 
     }
+    
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero-stats { justify-content: center; }
+      /* Menu Mobile ultra-compact pour le scroll */
+      nav { flex-direction: column; gap: 6px; text-align: center; padding: 8px 5%; }
+      nav a h1 { font-size: 18px; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+      nav ul a { font-size: 13px; }
+      .nav-whatsapp { padding: 5px 14px; font-size: 11px; gap: 4px; }
+
+      .hero { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+      .hero h1 { font-size: 32px; } 
+      .hero p { font-size: 15px; }
+      .cta-buttons { justify-content: center; gap: 10px; }
+      .hero-stats { justify-content: center; gap: 20px; }
+      .stat-item { text-align: center; }
+      .instructor-box { margin-top: 10px; } 
+
       .grid-3, .offers-grid, .discovery-grid, .contact-grid, .info-panel { grid-template-columns: 1fr; } 
-      nav { flex-direction: column; gap: 15px; text-align: center; }
-      nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+      .quiz-container { padding: 25px 20px; }
+      .quiz-step h3 { font-size: 18px; }
       .contact-form-box { padding: 30px 20px; }
     }
   </style>
@@ -191,16 +192,13 @@
     <li><a href="#decouverte">Découverte</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="btn-whatsapp" href="https://wa.me/33622279327?text=Bonjour%20Olivier%2C%20je%20souhaite%20r%C3%A9server%20une%20le%C3%A7on." target="_blank">💬 WhatsApp</a>
+  <a class="btn-whatsapp nav-whatsapp" href="https://wa.me/33622279327?text=Bonjour%20Olivier%2C%20je%20souhaite%20r%C3%A9server%20une%20le%C3%A7on." target="_blank">💬 WhatsApp</a>
 </nav>
 
 <div class="hero-container">
   <section class="hero" id="concept">
     <div>
       <span>⛳ Golf de Biot · Côte d'Azur</span>
-      
-      <img class="golf-preview-img" alt="Vue du Golf de Biot" src="1000058652.jpg">
-      
       <h1>Le golf se joue<br>sur le <em>parcours.</em></h1>
       <p>Apprendre dans les vraies situations de jeu permet de progresser plus vite : choix de club, stratégie, gestion du terrain, rythme et confiance.</p>
       <div class="cta-buttons">
@@ -454,15 +452,15 @@
       </form>
     </div>
     <div>
-      <h4>Contacter votre enseignant</h4>
+      <h4 style="text-align: left;">Contacter votre enseignant</h4>
       <div class="contact-info-list">
         <a class="contact-link" href="https://wa.me/33622279327?text=Bonjour%20Olivier" target="_blank"><div>💬</div><div><strong>WhatsApp</strong><br><span style="color:var(--gray);">06 22 27 93 27</span></div></a>
         <a class="contact-link" href="tel:0622279327"><div>📞</div><div><strong>Téléphone</strong><br><span style="color:var(--gray);">06 22 27 93 27</span></div></a>
         <a class="contact-link" href="mailto:olivier_theuillon@hotmail.com"><div>✉️</div><div><strong>E-mail</strong><br><span style="color:var(--gray);">olivier_theuillon@hotmail.com</span></div></a>
       </div>
-      <h4 style="margin-top:30px;">Adresse du club</h4>
-      <p style="margin:10px 0; color:var(--gray);">Golf de Biot<br>1379 route d'Antibes, 06410 Biot</p>
-      <a style="color:var(--accent); font-weight:600;" href="https://maps.google.com/?q=1379+route+d'Antibes+06410+Biot" target="_blank">📍 Ouvrir dans Google Maps →</a>
+      <h4 style="margin-top:30px; text-align: left;">Adresse du club</h4>
+      <p style="margin:10px 0; color:var(--gray); text-align: left;">Golf de Biot<br>1379 route d'Antibes, 06410 Biot</p>
+      <a style="color:var(--accent); font-weight:600; display: block; text-align: left;" href="https://maps.google.com/?q=1379+route+d'Antibes+06410+Biot" target="_blank">📍 Ouvrir dans Google Maps →</a>
     </div>
   </div>
 </section>
