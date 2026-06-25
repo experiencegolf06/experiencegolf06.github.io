@@ -22,7 +22,7 @@
     body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     
-    /* Menu du haut - Ultra optimisé et fin */
+    /* Menu du haut */
     nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 5%; background: var(--white); box-shadow: 0 2px 12px rgba(15,42,29,0.06); position: sticky; top: 0; z-index: 100; }
     nav a h1 { font-size: 22px; color: var(--primary); font-weight: 700; }
     nav a span { color: var(--accent); }
@@ -33,33 +33,33 @@
     .btn-whatsapp { background: #25d366; color: white; padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
     .nav-whatsapp { padding: 8px 18px; font-size: 13px; }
     
-    /* Hero Section */
+    /* Hero Section - Photo de Biot plus visible */
     .hero-container { 
       position: relative; 
-      background-image: linear-gradient(rgba(15, 42, 29, 0.82), rgba(15, 42, 29, 0.82)), url('1000058652.jpg'); 
+      background-image: linear-gradient(rgba(15, 42, 29, 0.65), rgba(15, 42, 29, 0.65)), url('1000058652.jpg'); 
       background-size: cover; 
       background-position: center; 
       color: white;
-      padding: 60px 5%;
+      padding: 100px 5%; /* Hauteur augmentée pour donner plus d'espace à l'image */
       width: 100%;
     }
     .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; max-width: 1400px; margin: 0 auto; width: 100%; }
     
-    .hero span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; display: block; margin-bottom: 10px; }
-    .hero h1 { font-size: 42px; color: white; line-height: 1.2; margin: 15px 0; font-weight: 700; word-wrap: break-word; }
+    .hero span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; display: block; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+    .hero h1 { font-size: 46px; color: white; line-height: 1.2; margin: 15px 0; font-weight: 700; word-wrap: break-word; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
     .hero h1 em { font-style: normal; color: var(--accent); }
-    .hero p { font-size: 16px; color: #cedcd5; margin-bottom: 30px; font-weight: 300; }
+    .hero p { font-size: 17px; color: #ffffff; margin-bottom: 30px; font-weight: 400; text-shadow: 0 2px 6px rgba(0,0,0,0.4); }
     
     .cta-buttons { display: flex; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: white; padding: 12px 28px; border-radius: 25px; font-weight: 600; text-align: center; transition: background 0.2s; display: inline-flex; align-items: center; }
+    .btn-primary { background: var(--accent); color: white; padding: 12px 28px; border-radius: 25px; font-weight: 600; text-align: center; transition: background 0.2s; display: inline-flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     .btn-primary:hover { background: #b08e4b; }
     
-    .hero-stats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 25px; flex-wrap: wrap; width: 100%; }
-    .stat-item { font-size: 13px; color: #b3c2bc; min-width: 100px; }
+    .hero-stats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 25px; flex-wrap: wrap; width: 100%; }
+    .stat-item { font-size: 13px; color: #ffffff; min-width: 100px; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
     .stat-item div:first-child { font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
     
     /* Box Profil Enseignant */
-    .instructor-box { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); padding: 30px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 340px; margin: 0 auto; }
+    .instructor-box { background: rgba(15, 42, 29, 0.4); backdrop-filter: blur(8px); padding: 30px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 340px; margin: 0 auto; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
     .instructor-profile-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); margin-bottom: 15px; background-color: var(--primary-light); }
 
     /* Philosophy */
@@ -104,12 +104,14 @@
     .offers-section h2 { text-align: center; font-size: 36px; color: var(--primary); margin-bottom: 45px; font-weight: 700; }
     .offers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1440px; margin: 0 auto; }
     .offer-card { border: 1px solid var(--border); padding: 30px 20px; border-radius: 10px; position: relative; background: white; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
-    .offer-card:hover { transform: translateY(-3px); }
+    .offer-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
     .offer-card.featured { border: 2px solid var(--accent); box-shadow: 0 12px 30px rgba(15,42,29,0.08); }
     .offer-badge { position: absolute; top: -14px; right: 15px; background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
     .offer-card h3 { font-size: 20px; color: var(--primary); margin: 15px 0 10px; font-weight: 700; }
-    .price { font-size: 30px; font-weight: 700; color: var(--primary); margin: 15px 0 5px; }
-    .offer-card ul { list-style: none; margin: 20px 0; font-size: 13px; }
+    .price { font-size: 30px; font-weight: 700; color: var(--primary); margin: 15px 0 2px; }
+    .price-subtext { font-size: 13px; color: var(--primary); font-weight: 600; margin-bottom: 4px; }
+    .access-fee { font-size: 11px; color: #a13636; font-weight: 600; background: #fee2e2; display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; }
+    .offer-card ul { list-style: none; margin: 15px 0; font-size: 13px; }
     .offer-card ul li { margin-bottom: 10px; display: flex; gap: 8px; color: var(--gray); line-height: 1.4; text-align: left; }
     .offer-card ul li span { color: #25d366; font-weight: bold; }
     .btn-offer { display: block; text-align: center; border: 1px solid var(--primary); padding: 12px; border-radius: 6px; font-weight: 600; transition: all 0.2s; font-size: 14px; margin-top: auto; background: transparent; color: var(--primary); }
@@ -148,35 +150,32 @@
     .contact-link:hover { border-color: var(--accent); transform: translateX(3px); }
 
     /* Footer */
-    footer { background: var(--primary); color: white; text-align: center; padding: 45px 5%; font-size: 14px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; border-top: 4px solid var(--accent); }
+    footer { background: var(--primary); color: white; text-align: center; padding: 45px 5%; font-size: 14px; display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; border-top: 4px solid var(--accent); }
     footer a { color: #b3c2bc; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
     
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* MEDIA QUERIES - RESPONSIVE CORRECTIONS */
+    /* MEDIA QUERIES */
     @media (max-width: 1200px) {
       .offers-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; } 
     }
     
     @media (max-width: 768px) {
-      /* Barre du haut ultra fine, centrée et compacte */
       nav { flex-direction: column; gap: 8px; padding: 8px 15px; text-align: center; justify-content: center; }
       nav a h1 { font-size: 20px; line-height: 1; }
       nav ul { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px 14px; max-width: 100%; margin: 0 auto; }
       nav ul a { font-size: 13px; font-weight: 600; }
       .nav-whatsapp { display: none !important; }
 
-      /* Conteneur Hero parfaitement ajusté sans coupure */
-      .hero-container { padding: 40px 20px; }
+      .hero-container { padding: 60px 20px; }
       .hero { grid-template-columns: 1fr; text-align: center; gap: 30px; width: 100%; }
-      .hero h1 { font-size: 32px; padding: 0 5px; } 
-      .hero p { font-size: 15px; padding: 0 5px; }
+      .hero h1 { font-size: 34px; padding: 0 5px; } 
+      .hero p { font-size: 16px; padding: 0 5px; }
       .cta-buttons { justify-content: center; gap: 10px; width: 100%; }
       .cta-buttons a { flex: 1; min-width: 140px; justify-content: center; font-size: 13px; padding: 12px 15px; }
       
-      /* Correction des stats coupées sur les côtés */
-      .hero-stats { display: grid; grid-template-columns: 1fr; gap: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); width: 100%; }
+      .hero-stats { display: grid; grid-template-columns: 1fr; gap: 20px; padding-top: 20px; width: 100%; }
       .stat-item { text-align: center; width: 100%; }
       .instructor-box { margin-top: 15px; } 
 
@@ -220,7 +219,7 @@
     <div class="instructor-box">
       <img class="instructor-profile-img" alt="Olivier Theuillon enseignant golf" src="1000058651.jpg">
       <h3 style="color:var(--accent); font-size:22px; font-weight:700;">Olivier Theuillon</h3>
-      <p style="font-size:14px; color:#cedcd5; margin-top:5px;">Enseignant Professionnel<br>Golf de Biot</p>
+      <p style="font-size:14px; color:#ffffff; margin-top:5px; font-weight: 500;">Enseignant Professionnel<br>Golf de Biot</p>
     </div>
   </section>
 </div>
@@ -324,7 +323,8 @@
         <h3>Leçon individuelle</h3>
         <p style="color:var(--gray); font-size:13px;">Idéal pour travailler un point précis du swing.</p>
         <div class="price">60 €</div>
-        <p style="font-size:13px; color:var(--primary); font-weight: 600;">la séance de 45 minutes</p>
+        <p class="price-subtext">la séance de 45 minutes</p>
+        <div class="access-fee">accès parcours 30 €</div>
         <ul>
           <li><span>✓</span> Analyse vidéo du swing</li>
           <li><span>✓</span> Exercices adaptés</li>
@@ -341,8 +341,9 @@
         <span style="color:var(--accent); font-weight:600;">Parcours</span>
         <h3>Leçon sur parcours</h3>
         <p style="color:var(--gray); font-size:13px;">La formule idéale en situation réelle.</p>
-        <div class="price">100 € + 30€ accès parcours </div>
-        <p style="font-size:13px; color:var(--primary); font-weight: 600;">la séance d'1h30</p>
+        <div class="price">100 €</div>
+        <p class="price-subtext">la séance d'1h30</p>
+        <div class="access-fee">accès parcours 30 €</div>
         <ul>
           <li><span>✓</span> Tactique de jeu</li>
           <li><span>✓</span> Routine de coup</li>
@@ -359,7 +360,7 @@
         <h3>Forfait progression</h3>
         <p style="color:var(--gray); font-size:13px;">Un accompagnement régulier dans le temps.</p>
         <div class="price">300 €</div>
-        <p style="font-size:13px; color:var(--primary); font-weight: 600;">5 séances de 45 min<br>+ 1 offerte de 45 min</p>
+        <p class="price-subtext" style="margin-bottom: 20px;">5 séances de 45 min<br>+ 1 offerte de 45 min</p>
         <ul>
           <li><span>✓</span> 6 séances complètes</li>
           <li><span>✓</span> Suivi personnalisé</li>
@@ -376,7 +377,7 @@
         <span style="color:var(--accent); font-weight:600;">Initiation</span>
         <h3>Formule Découverte</h3>
         <p style="color:var(--gray); font-size:13px;">Une immersion totale de 3h sur le terrain pour débuter.</p>
-        <div style="margin: 15px 0 10px;">
+        <div style="margin: 15px 0 15px;">
           <div style="font-size: 24px; font-weight: 700; color: var(--primary);">199 € <span style="font-size:12px; font-weight:400; color:var(--gray);">/ 1 pers</span></div>
           <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-top: 5px;">249 € <span style="font-size:12px; font-weight:400; color:var(--gray);">/ 2 pers</span></div>
         </div>
@@ -476,7 +477,7 @@
   <span>|</span>
   <a href="mailto:olivier_theuillon@hotmail.com">olivier_theuillon@hotmail.com</a>
   <span>|</span>
-  <a href="tel:0622279327">06 22 27 93 27</a>
+  <a href="https://www.facebook.com/people/Enseignant-Golf-Olivier-Theuillon/100057431265882/" target="_blank">🔵 Facebook : Enseignant Golf Olivier Theuillon</a>
 </footer>
 
 <script>
