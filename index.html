@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expérience Golf - Olivier Theuillon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2a1d; /* Vert forêt profond */
+      --primary-light: #19412f;
+      --accent: #c5a059; /* Doré sablé */
+      --text: #2d3732; 
+      --bg-light: #f4f6f4; 
+      --white: #ffffff;
+      --gray: #626e68;
+      --border: #e2e8e4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Nav */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: var(--white); box-shadow: 0 2px 12px rgba(15,42,29,0.06); position: sticky; top: 0; z-index: 100; }
+    nav a h1 { font-size: 24px; color: var(--primary); font-weight: 700; }
+    nav a span { color: var(--accent); }
+    nav ul { display: flex; list-style: none; gap: 24px; }
+    nav ul a { font-weight: 500; color: var(--text); transition: color 0.2s; }
+    nav ul a:hover { color: var(--accent); }
+    .btn-whatsapp { background: #25d366; color: white; padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    
+    /* Hero Section */
+    .hero-container { 
+      position: relative; 
+      background-image: linear-gradient(rgba(15, 42, 29, 0.75), rgba(15, 42, 29, 0.75)), url('1000058652.jpg'); 
+      background-size: cover; 
+      background-position: center; 
+      color: white;
+      padding: 90px 5%;
+    }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; max-width: 1400px; margin: 0 auto; }
+    
+    .golf-preview-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 2px solid var(--accent);
+      display: block;
+    }
+
+    .hero span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; }
+    .hero h1 { font-size: 44px; color: white; line-height: 1.2; margin: 15px 0; font-weight: 700; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 17px; color: #cedcd5; margin-bottom: 35px; font-weight: 300; }
+    .cta-buttons { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: white; padding: 15px 32px; border-radius: 6px; font-weight: 600; text-align: center; transition: background 0.2s; }
+    .btn-primary:hover { background: #b08e4b; }
+    .hero-stats { display: flex; gap: 35px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 30px; }
+    .stat-item { font-size: 13px; color: #b3c2bc; }
+    .stat-item div:first-child { font-size: 26px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+    
+    /* Box Profil Enseignant */
+    .instructor-box { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); padding: 30px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .instructor-profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); margin-bottom: 18px; background-color: var(--primary-light); }
+
+    /* Philosophy */
+    .philosophy { text-align: center; padding: 90px 5%; background: var(--white); }
+    .philosophy span { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
+    .philosophy h2 { font-size: 36px; color: var(--primary); margin: 10px 0 40px; font-weight: 700; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+    .card-feature { background: var(--bg-light); padding: 35px 30px; border-radius: 10px; text-align: left; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid var(--border); }
+    .card-feature:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.04); }
+    .card-feature .icon { font-size: 32px; margin-bottom: 20px; }
+    .card-feature h3 { margin-bottom: 12px; color: var(--primary); font-size: 20px; }
+    .card-feature p { color: var(--gray); font-size: 15px; }
+
+    /* Quiz Container */
+    .quiz-section { background: var(--primary); color: white; padding: 90px 5%; }
+    .quiz-container { max-width: 700px; margin: 40px auto 0; background: white; color: var(--text); padding: 45px; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+    .progress-bar-container { background: #e2e8e4; height: 6px; border-radius: 3px; margin-bottom: 35px; overflow: hidden; }
+    .progress-bar { background: var(--accent); height: 100%; width: 25%; transition: width 0.3s ease; }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    .quiz-step h3 { font-size: 22px; margin-bottom: 25px; color: var(--primary); display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .quiz-step h3 span { background: var(--accent); color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 14px; font-weight: 700; }
+    .options-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 25px; }
+    .option-btn { background: var(--bg-light); border: 1px solid var(--border); padding: 16px 22px; text-align: left; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; color: var(--text); transition: all 0.2s; }
+    .option-btn:hover { border-color: var(--primary); background: #eef2ef; }
+    .option-btn.selected { border-color: var(--accent); background: #fbf9f3; color: var(--primary); font-weight: 600; box-shadow: inset 0 0 0 1px var(--accent); }
+    .quiz-nav { display: flex; justify-content: space-between; margin-top: 25px; }
+    .btn-nav { padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 15px; }
+    .btn-prev { background: #e2e8e4; color: var(--gray); }
+    .btn-next { background: var(--primary); color: white; }
+    .btn-next:disabled { background: #cbd5e1; cursor: not-allowed; color: #94a3b8; }
+    
+    /* Result Box */
+    .result-box { display: none; text-align: center; padding: 20px 0; animation: fadeIn 0.5s ease; }
+    .result-box h4 { font-size: 24px; color: var(--primary); margin-bottom: 12px; font-weight: 700; }
+    .result-card { background: #fbf9f3; border: 2px dashed var(--accent); padding: 30px; border-radius: 10px; margin: 25px 0; }
+    .result-card h5 { font-size: 21px; color: var(--primary); margin-bottom: 12px; font-weight: 700; }
+    .btn-result-cta { display: inline-block; background: var(--accent); color: white; padding: 14px 30px; border-radius: 6px; font-weight: 600; margin-top: 15px; }
+
+    /* Offers - 4 colonnes alignées */
+    .offers-section { padding: 90px 5%; background: var(--bg-light); }
+    .offers-section h2 { text-align: center; font-size: 36px; color: var(--primary); margin-bottom: 45px; font-weight: 700; }
+    
+    .offers-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 20px; 
+      max-width: 1440px; 
+      margin: 0 auto; 
+    }
+    
+    .offer-card { border: 1px solid var(--border); padding: 30px 20px; border-radius: 10px; position: relative; background: white; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
+    .offer-card:hover { transform: translateY(-3px); }
+    .offer-card.featured { border: 2px solid var(--accent); box-shadow: 0 12px 30px rgba(15,42,29,0.08); }
+    .offer-badge { position: absolute; top: -14px; right: 15px; background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .offer-card h3 { font-size: 20px; color: var(--primary); margin: 15px 0 10px; font-weight: 700; }
+    .price { font-size: 30px; font-weight: 700; color: var(--primary); margin: 15px 0 5px; }
+    .offer-card ul { list-style: none; margin: 20px 0; font-size: 13px; }
+    .offer-card ul li { margin-bottom: 10px; display: flex; gap: 8px; color: var(--gray); line-height: 1.4; }
+    .offer-card ul li span { color: #25d366; font-weight: bold; }
+    .btn-offer { display: block; text-align: center; border: 1px solid var(--primary); padding: 12px; border-radius: 6px; font-weight: 600; transition: all 0.2s; font-size: 14px; margin-top: auto; background: transparent; color: var(--primary); }
+    .btn-offer:hover { background: var(--bg-light); }
+    .offer-card.featured .btn-offer, .offer-card.discovery-card .btn-offer { background: var(--primary); color: white; border: none; }
+    .offer-card.featured .btn-offer:hover, .offer-card.discovery-card .btn-offer:hover { background: var(--primary-light); }
+
+    /* Discovery Split Section */
+    .discovery { background: var(--white); padding: 90px 5%; }
+    .discovery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; }
+    .step-list { display: flex; flex-direction: column; gap: 24px; }
+    .step-item { display: flex; gap: 20px; background: var(--bg-light); padding: 25px; border-radius: 10px; border: 1px solid var(--border); }
+    .step-num { background: var(--primary); color: white; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; }
+    .step-item h3 { font-size: 18px; color: var(--primary); margin-bottom: 5px; }
+    .step-item p { color: var(--gray); font-size: 14px; }
+
+    /* Météo et Trajets */
+    .info-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; text-align: left; }
+    .info-card { background: var(--bg-light); padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+    .info-card h5 { margin-bottom: 12px; font-size: 15px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+    .trajet-list { list-style: none; }
+    .trajet-list li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #cbd5e1; font-size: 14px; color: var(--gray); }
+
+    /* Contact & Form */
+    .contact-section { padding: 90px 5%; background: var(--bg-light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; }
+    .contact-form-box { background: var(--white); padding: 45px; border-radius: 12px; box-shadow: 0 10px 30px rgba(15,42,29,0.04); border: 1px solid var(--border); }
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 15px; color: var(--primary); }
+    .form-group select, .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 15px; background: var(--bg-light); color: var(--text); font-family: inherit; }
+    .form-group select:focus, .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); background: var(--white); }
+    .btn-submit { background: var(--primary); color: white; border: none; padding: 16px; width: 100%; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 16px; transition: background 0.2s; }
+    .btn-submit:hover { background: var(--primary-light); }
+    .contact-info-list { display: flex; flex-direction: column; gap: 16px; margin-top: 25px; }
+    .contact-link { display: flex; align-items: center; gap: 18px; padding: 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); transition: all 0.2s; }
+    .contact-link:hover { border-color: var(--accent); transform: translateX(3px); }
+
+    /* Footer */
+    footer { background: var(--primary); color: white; text-align: center; padding: 45px 5%; font-size: 14px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; border-top: 4px solid var(--accent); }
+    footer a { color: #b3c2bc; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    @media (max-width: 1200px) {
+      .offers-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; } 
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-stats { justify-content: center; }
+      .grid-3, .offers-grid, .discovery-grid, .contact-grid, .info-panel { grid-template-columns: 1fr; } 
+      nav { flex-direction: column; gap: 15px; text-align: center; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+      .contact-form-box { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#"><h1>Expérience<span> Golf</span></h1></a>
+  <ul>
+    <li><a href="#concept">Concept</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#offres">Offres</a></li>
+    <li><a href="#decouverte">Découverte</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn-whatsapp" href="https://wa.me/33622279327?text=Bonjour%20Olivier%2C%20je%20souhaite%20r%C3%A9server%20une%20le%C3%A7on." target="_blank">💬 WhatsApp</a>
+</nav>
+
+<div class="hero-container">
+  <section class="hero" id="concept">
+    <div>
+      <span>⛳ Golf de Biot · Côte d'Azur</span>
+      
+      <img class="golf-preview-img" alt="Vue du Golf de Biot" src="1000058652.jpg">
+      
+      <h1>Le golf se joue<br>sur le <em>parcours.</em></h1>
+      <p>Apprendre dans les vraies situations de jeu permet de progresser plus vite : choix de club, stratégie, gestion du terrain, rythme et confiance.</p>
+      <div class="cta-buttons">
+        <a href="#offres" class="btn-primary">Voir les formules →</a>
+        <a href="https://wa.me/33622279327?text=Bonjour%20Olivier%2C%20j'aimerais%20en%20savoir%20plus." class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div>20 ans</div><div>d'expérience</div></div>
+        <div class="stat-item"><div>BPJEPS</div><div>Diplôme d'État</div></div>
+        <div class="stat-item"><div>TrackMan</div><div>Level 1 & TPI</div></div>
+      </div>
+    </div>
+    <div class="instructor-box">
+      <img class="instructor-profile-img" alt="Olivier Theuillon enseignant golf" src="1000058651.jpg">
+      <h3 style="color:var(--accent); font-size:22px; font-weight:700;">Olivier Theuillon</h3>
+      <p style="font-size:14px; color:#cedcd5; margin-top:5px;">Enseignant Professionnel<br>Golf de Biot</p>
+    </div>
+  </section>
+</div>
+
+<section class="philosophy">
+  <span>La philosophie</span>
+  <h2>Pourquoi apprendre sur parcours ?</h2>
+  <p style="max-width:600px; margin: 0 auto 40px; color:var(--gray);">Le practice construit des repères, mais le parcours apprend à les utiliser sous pression. C'est là que les vrais progrès s'installent.</p>
+  <div class="grid-3">
+    <div class="card-feature">
+      <div class="icon">🎯</div>
+      <h3>Conditions réelles</h3>
+      <p>Lies variés, distances imprévues, décisions immédiates : vous apprenez là où les coups comptent vraiment.</p>
+    </div>
+    <div class="card-feature">
+      <div class="icon">🧠</div>
+      <h3>Meilleures décisions</h3>
+      <p>Choix de cible, de club, de trajectoire : le parcours force à réfléchir comme en partie, pas à reproduire mécaniquement un geste.</p>
+    </div>
+    <div class="card-feature">
+      <div class="icon">💪</div>
+      <h3>Confiance durable</h3>
+      <p>En transférant vos repères directement sur le terrain, vous gagnez en sérénité et en régularité pour scorer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-section" id="quiz">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <span>Diagnostic rapide</span>
+    <h2 style="font-size:36px; margin: 10px 0; color:white;">Trouvez votre formule en 4 questions</h2>
+    <p style="opacity: 0.9; color: #cedcd5;">Répondez rapidement, je vous oriente vers le programme qui correspond à votre situation et vos objectifs.</p>
+  </div>
+
+  <div class="quiz-container">
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Question 1 -->
+    <div class="quiz-step active" data-step="1">
+      <h3><span>1</span> Quel est votre niveau actuel au golf ?</h3>
+      <div class="options-grid">
+        <button class="option-btn" data-value="debutant">Je suis grand débutant (jamais ou peu joué)</button>
+        <button class="option-btn" data-value="intermediaire">Intermédiaire (j'ai déjà joué, parcours de temps en temps)</button>
+        <button class="option-btn" data-value="confirme">Confirmé / Classé (je cherche à scorer et baisser mon index)</button>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="quiz-step" data-step="2">
+      <h3><span>2</span> Sur le parcours, qu'est-ce qui vous bloque le plus ?</h3>
+      <div class="options-grid">
+        <button class="option-btn" data-value="technique">La régularité de mes coups / la technique pure</button>
+        <button class="option-btn" data-value="strategie">La stratégie, le choix de club et la gestion du terrain</button>
+        <button class="option-btn" data-value="confiance">Le stress, la routine et le manque de confiance</button>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="quiz-step" data-step="3">
+      <h3><span>3</span> Quel est votre objectif principal en ce moment ?</h3>
+      <div class="options-grid">
+        <button class="option-btn" data-value="decouvrir">Découvrir le sport sans prise de tête</button>
+        <button class="option-btn" data-value="corriger">Corriger un défaut précis du swing</button>
+        <button class="option-btn" data-value="scorer">Mieux gérer mes parties pour scorer plus bas</button>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="quiz-step" data-step="4">
+      <h3><span>4</span> À quelle fréquence souhaitez-vous travailler ?</h3>
+      <div class="options-grid">
+        <button class="option-btn" data-value="ponctuel">Une seule séance pour un déblocage rapide</button>
+        <button class="option-btn" data-value="regulier">Plusieurs séances pour un vrai suivi de progression</button>
+      </div>
+    </div>
+
+    <!-- Resultats -->
+    <div class="result-box" id="resultBox">
+      <h4>🎯 Votre profil analysé !</h4>
+      <div class="result-card" id="resultCard"></div>
+    </div>
+
+    <div class="quiz-nav" id="quizNav">
+      <button class="btn-nav btn-prev" id="prevBtn" disabled>Précédent</button>
+      <button class="btn-nav btn-next" id="nextBtn" disabled>Suivant</button>
+    </div>
+  </div>
+</section>
+
+<section class="offers-section" id="offres">
+  <h2>Toutes les formules pour progresser</h2>
+  
+  <div class="offers-grid">
+    
+    <!-- OFFRE 1 -->
+    <div class="offer-card">
+      <div>
+        <span style="color:var(--gray); font-weight:600;">Practice</span>
+        <h3>Leçon individuelle</h3>
+        <p style="color:var(--gray); font-size:13px;">Idéal pour travailler un point précis du swing.</p>
+        <div class="price">60 €</div>
+        <p style="font-size:13px; color:var(--gray);">la séance de 45 min</p>
+        <ul>
+          <li><span>✓</span> Analyse vidéo du swing</li>
+          <li><span>✓</span> Exercices adaptés</li>
+          <li><span>✓</span> Repères mécaniques</li>
+        </ul>
+      </div>
+      <a class="btn-offer" href="#contact" onclick="selectFormule('Leçon individuelle (60€)')">Réserver →</a>
+    </div>
+
+    <!-- OFFRE 2 -->
+    <div class="offer-card featured">
+      <div class="offer-badge">⭐ Top</div>
+      <div>
+        <span style="color:var(--accent); font-weight:600;">Parcours</span>
+        <h3>Leçon sur parcours</h3>
+        <p style="color:var(--gray); font-size:13px;">La formule idéale en situation réelle.</p>
+        <div class="price">100 €</div>
+        <p style="font-size:13px; color:var(--gray);">+ accès parcours club</p>
+        <ul>
+          <li><span>✓</span> Tactique de jeu</li>
+          <li><span>✓</span> Routine de coup</li>
+          <li><span>✓</span> Gestion du terrain</li>
+        </ul>
+      </div>
+      <a class="btn-offer" href="#contact" onclick="selectFormule('Leçon sur parcours (100€)')">Réserver →</a>
+    </div>
+
+    <!-- OFFRE 3 -->
+    <div class="offer-card">
+      <div>
+        <span style="color:var(--gray); font-weight:600;">Suivi</span>
+        <h3>Forfait progression</h3>
+        <p style="color:var(--gray); font-size:13px;">Un accompagnement régulier dans le temps.</p>
+        <div class="price">300 €</div>
+        <p style="font-size:13px; color:var(--gray);">5 séances + 1 offerte</p>
+        <ul>
+          <li><span>✓</span> 6 séances complètes</li>
+          <li><span>✓</span> Suivi personnalisé</li>
+          <li><span>✓</span> Idéal régularité</li>
+        </ul>
+      </div>
+      <a class="btn-offer" href="#contact" onclick="selectFormule('Forfait progression (300€)')">Réserver →</a>
+    </div>
+
+    <!-- OFFRE 4 -->
+    <div class="offer-card discovery-card" style="border-color: var(--accent);">
+      <div class="offer-badge" style="background-color: var(--primary);">⏱️ 3 heures</div>
+      <div>
+        <span style="color:var(--accent); font-weight:600;">Initiation</span>
+        <h3>Formule Découverte</h3>
+        <p style="color:var(--gray); font-size:13px;">Une immersion totale de 3h sur le terrain pour débuter.</p>
+        <div style="margin: 15px 0 10px;">
+          <div style="font-size: 24px; font-weight: 700; color: var(--primary);">199 € <span style="font-size:12px; font-weight:400; color:var(--gray);">/ 1 pers</span></div>
+          <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-top: 5px;">249 € <span style="font-size:12px; font-weight:400; color:var(--gray);">/ 2 pers</span></div>
+        </div>
+        <ul>
+          <li><span>✓</span> Café &amp; Voiturette</li>
+          <li><span>✓</span> Prêt des clubs</li>
+          <li><span>✓</span> Trous joués encadrés</li>
+        </ul>
+      </div>
+      <a class="btn-offer" href="#contact" onclick="selectFormule('Formule Découverte 1 pers (199€)')">Réserver →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="discovery" id="decouverte">
+  <div style="text-align:center; margin-bottom: 40px;">
+    <span>Première fois au golf ?</span>
+    <h2>Déroulement de l'expérience Découverte (3h)</h2>
+    <p style="color:var(--gray);">Une formule immersive et clé en main pour comprendre le golf et jouer vos premiers coups sur un vrai parcours.</p>
+  </div>
+  <div class="discovery-grid">
+    <div class="step-list">
+      <div class="step-item"><div class="step-num">1</div><div><h3>Accueil & Échanges</h3><p>Présentation, prise de repères et café de bienvenue au club-house.</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div><h3>Tour du parcours en voiturette</h3><p>Exploration des trous emblématiques avec décryptage du terrain.</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div><h3>Atelier Initiation</h3><p>Apprentissage des gestes fondamentaux et prise en main des clubs.</p></div></div>
+      <div class="step-item"><div class="step-num">4</div><div><h3>Vos premiers trous de Golf</h3><p>Mise en situation directe sur le parcours de Biot, en toute sérénité.</p></div></div>
+    </div>
+    <div style="display:flex; flex-direction:column; justify-content:center; background:white; padding:40px; border-radius:10px; box-shadow: 0 12px 24px rgba(15,42,29,0.04); text-align:center; border:1px solid var(--border);">
+      <h3 style="color:var(--primary); margin-bottom:15px;">Infos Pratiques & Accès</h3>
+      <p style="color:var(--gray); font-size:14px; margin-bottom:15px;">📍 1379 route d'Antibes, 06410 Biot</p>
+      
+      <div class="info-panel">
+        <div class="info-card">
+          <h5>☀️ Météo Live Biot</h5>
+          <div id="weather-widget" style="font-size: 14px; font-weight: 600; color: var(--primary);">Chargement...</div>
+        </div>
+        <div class="info-card">
+          <h5>🚗 Temps de trajet</h5>
+          <ul class="trajet-list">
+            <li><span>Antibes Centre</span> <strong>~12 min</strong></li>
+            <li><span>Nice Aéroport</span> <strong>~18 min</strong></li>
+            <li><span>Cannes</span> <strong>~22 min</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div style="text-align:center; margin-bottom:40px;">
+    <span>Contact</span>
+    <h2>Planifier une séance</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-form-box">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="formName">Votre Nom</label>
+          <input type="text" id="formName" required placeholder="Ex: Jean Dupont">
+        </div>
+        <div class="form-group">
+          <label for="formFormule">Formule souhaitée</label>
+          <select id="formFormule" required>
+            <option value="" disabled selected>— Choisissez une formule —</option>
+            <option value="Leçon individuelle (60€)">Practice — Leçon individuelle (60€ / 45min)</option>
+            <option value="Leçon sur parcours (100€)">Parcours — Leçon sur parcours (100€)</option>
+            <option value="Forfait progression (300€)">Forfait progression 5+1 séances (300€)</option>
+            <option value="Formule Découverte 1 pers (199€)">Formule Découverte (3h) — 1 personne (199€)</option>
+            <option value="Formule Découverte 2 pers (249€)">Formule Découverte (3h) — 2 personnes (249€)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="formMessage">Message / Disponibilités</label>
+          <textarea id="formMessage" rows="4" placeholder="Bonjour Olivier, j'aimerais réserver pour..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Envoyer la demande par e-mail →</button>
+      </form>
+    </div>
+    <div>
+      <h4>Contacter votre enseignant</h4>
+      <div class="contact-info-list">
+        <a class="contact-link" href="https://wa.me/33622279327?text=Bonjour%20Olivier" target="_blank"><div>💬</div><div><strong>WhatsApp</strong><br><span style="color:var(--gray);">06 22 27 93 27</span></div></a>
+        <a class="contact-link" href="tel:0622279327"><div>📞</div><div><strong>Téléphone</strong><br><span style="color:var(--gray);">06 22 27 93 27</span></div></a>
+        <a class="contact-link" href="mailto:olivier_theuillon@hotmail.com"><div>✉️</div><div><strong>E-mail</strong><br><span style="color:var(--gray);">olivier_theuillon@hotmail.com</span></div></a>
+      </div>
+      <h4 style="margin-top:30px;">Adresse du club</h4>
+      <p style="margin:10px 0; color:var(--gray);">Golf de Biot<br>1379 route d'Antibes, 06410 Biot</p>
+      <a style="color:var(--accent); font-weight:600;" href="https://maps.google.com/?q=1379+route+d'Antibes+06410+Biot" target="_blank">📍 Ouvrir dans Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Expérience Golf — Olivier Theuillon</strong>
+  <span>|</span>
+  <a href="mailto:olivier_theuillon@hotmail.com">olivier_theuillon@hotmail.com</a>
+  <span>|</span>
+  <a href="tel:0622279327">06 22 27 93 27</a>
+</footer>
+
+<script>
+  function selectFormule(valeur) {
+    document.getElementById('formFormule').value = valeur;
+  }
+
+  async function fetchWeather() {
+    try {
+      const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=43.6302&longitude=7.0972&current_weather=true');
+      const data = await response.json();
+      if(data && data.current_weather) {
+        const temp = Math.round(data.current_weather.temperature);
+        document.getElementById('weather-widget').innerHTML = `☀️ ${temp}°C <br><span style="font-size:12px; color:var(--gray);">Ciel actuel · Golf de Biot</span>`;
+      }
+    } catch (error) {
+      document.getElementById('weather-widget').innerHTML = `☀️ 22°C <br><span style="font-size:12px; color:var(--gray);">Biot · Côte d'Azur</span>`;
+    }
+  }
+  fetchWeather();
+
+  let currentStep = 1;
+  const totalSteps = 4;
+  const answers = {};
+
+  const steps = document.querySelectorAll('.quiz-step');
+  const progressBar = document.getElementById('progressBar');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const resultBox = document.getElementById('resultBox');
+  const resultCard = document.getElementById('resultCard');
+  const quizNav = document.getElementById('quizNav');
+
+  document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const currentStepEl = this.closest('.quiz-step');
+      currentStepEl.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+      this.classList.add('selected');
+      const stepNum = currentStepEl.getAttribute('data-step');
+      answers[stepNum] = this.getAttribute('data-value');
+      nextBtn.disabled = false;
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentStep < totalSteps) {
+      steps[currentStep - 1].classList.remove('active');
+      currentStep++;
+      steps[currentStep - 1].classList.add('active');
+      prevBtn.disabled = false;
+      nextBtn.disabled = !answers[currentStep];
+      if(currentStep === totalSteps) {
+        nextBtn.innerText = "Voir ma recommandation";
+      }
+    } else if (currentStep === totalSteps) {
+      displayRecommendation();
+    }
+    updateProgressBar();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 1) {
+      steps[currentStep - 1].classList.remove('active');
+      currentStep--;
+      steps[currentStep - 1].classList.add('active');
+      nextBtn.disabled = false;
+      nextBtn.innerText = "Suivant";
+      if (currentStep === 1) {
+        prevBtn.disabled = true;
+      }
+    }
+    updateProgressBar();
+  });
+
+  function updateProgressBar() {
+    const percentage = (currentStep / totalSteps) * 100;
+    progressBar.style.width = percentage + '%';
+  }
+
+  function displayRecommendation() {
+    steps.forEach(step => step.style.display = 'none');
+    quizNav.style.display = 'none';
+    resultBox.style.display = 'block';
+
+    let titreFormule = "Leçon sur Parcours (100€)";
+    let descFormule = "Le parcours est le meilleur endroit pour progresser en situation réelle.";
+    let selectValue = "Leçon sur parcours (100€)";
+
+    if (answers['1'] === 'debutant' || answers['3'] === 'decouvrir') {
+      titreFormule = "La Formule Découverte 3h (Dès 199€)";
+      descFormule = "Idéal pour débuter sans complexe ! Un parcours complet en voiturette de 3 heures.";
+      selectValue = "Formule Découverte 1 pers (199€)";
+    } else if (answers['4'] === 'regulier') {
+      titreFormule = "Le Forfait Progression 5+1 (300€)";
+      descFormule = "Pour ancrer durablement des changements et corriger des défauts réguliers.";
+      selectValue = "Forfait progression (300€)";
+    } else if (answers['2'] === 'technique' && answers['4'] === 'ponctuel') {
+      titreFormule = "La Leçon Individuelle au Practice (60€)";
+      descFormule = "Idéal pour un déblocage technique ciblé.";
+      selectValue = "Leçon individuelle (60€)";
+    }
+
+    resultCard.innerHTML = `
+      <h5>Formule idéale : ${titreFormule}</h5>
+      <p style="font-size:15px; color:var(--gray); margin-bottom: 15px;">${descFormule}</p>
+      <a href="#contact" onclick="selectFormule('${selectValue}')" class="btn-result-cta">Réserver cette formule maintenant →</a>
+    `;
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('formName').value;
+    const formule = document.getElementById('formFormule').value;
+    const message = document.getElementById('formMessage').value;
+    const subject = `Demande de cours Golf - ${name}`;
+    const body = `Bonjour Olivier,\n\nJe m'appelle ${name}.\nJe souhaiterais réserver la formule suivante : ${formule}.\n\nDisponibilités / Message :\n${message}`;
+    window.location.href = `mailto:olivier_theuillon@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+
+</body>
+</html>
